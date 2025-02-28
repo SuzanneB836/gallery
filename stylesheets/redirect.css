@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #010203;
+}
+
+.text {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    background-color: #010203;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: #82d5ff;
+    text-decoration: none;
+}
