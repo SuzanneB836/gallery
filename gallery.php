@@ -34,14 +34,6 @@
         </div>
     </div>
 
-    <div class="parent-container">
-        <div class="title-container">
-
-        </div>
-        <div class="card-container">
-
-        </div>
-    </div>
 
 </body>
 

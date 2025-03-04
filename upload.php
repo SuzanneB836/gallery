@@ -59,6 +59,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Image</title>
 
+    <link rel="icon" href="media/logo.png" type="image/png">
     <link rel="stylesheet" href="stylesheets/upload.css">
     <script src="script.js"></script>
 </head>
