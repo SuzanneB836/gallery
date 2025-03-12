@@ -1,5 +1,3 @@
-// Upload.php > UpdateFileName() > Verandert de tekst van de file input naar de naam van de geuploade file.
-
 function updateFileName() {
     var fileInput = document.getElementById('getFile');
     var fileName = document.getElementById('fileName');
@@ -10,5 +8,13 @@ function updateFileName() {
     } else {
       fileName.textContent = 'Click to upload';
     }
-  }
-  
+}
+
+function openModal(src) {
+    document.getElementById("modalImg").src = src;
+    document.getElementById("imgModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("imgModal").style.display = "none";
+}

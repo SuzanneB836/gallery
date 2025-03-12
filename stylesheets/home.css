@@ -1,0 +1,24 @@
+/* -- -- -- -- -- Intro -- -- -- -- -- */
+
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    max-width: 100vw;
+}
+
+.intro-text {
+    max-width: 40%;
+    width: 40%;
+}
+
+.intro-img {
+    max-width: 40%;
+    width: 40%;
+}
+
+.intro-img img {
+    max-width: 100%;
+    width: 100%;
+}
