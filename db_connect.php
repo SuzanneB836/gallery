@@ -1,14 +1,13 @@
 <?php
-$servername = "192.168.0.100";
-$username = "suzanneb_gallery";
-$password = "YemFgwwH8LBxfMwf27W9";
-$database = "suzanneb_gallery";
+$host = getenv('DB_HOST');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+$dbname = getenv('DB_NAME');
+$port = getenv('DB_PORT') ?: 3306;
 
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $database);
+$mysqli = new mysqli($host, $user, $pass, $dbname, $port);
 
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_errno) {
+    die("Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
 }
 ?>
