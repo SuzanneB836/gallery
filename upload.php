@@ -5,6 +5,29 @@ include 'db_connect.php';
 // Variable to store messages
 $message = "";
 
+// Start session to store submission time
+session_start();
+
+// Check if form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $current_time = time(); 
+
+    if (isset($_SESSION['last_submit_time'])) {
+        $time_diff = $current_time - $_SESSION['last_submit_time'];
+
+        if ($time_diff < 5) {
+            // User submitted too soon
+            $message = "Oeps! Je bent te snel knuffels aan het uploaden.";
+        } else {
+            // Allow submission
+            $_SESSION['last_submit_time'] = $current_time;
+        }
+    } else {
+        // First submission, store time
+        $_SESSION['last_submit_time'] = $current_time;
+    }
+}
+
 // Check if the form was submitted
 if (isset($_POST["submit"])) {
     $name = $_POST["name"];
@@ -22,7 +45,7 @@ if (isset($_POST["submit"])) {
 
     // Check if the file type is valid
     if (!in_array($fileType, $allowedTypes)) {
-        $message = "Error, alleen JPG, JPEG & PNG bestanden zijn toegestaan. Keer hier teug naar de <a href='main.php'>homepagina</a>.";
+        $message = "Error, alleen JPG, JPEG & PNG bestanden zijn toegestaan.";
     } else {
         // Construct the new file name using the "name" input
         $newFileName = $name . '.' . $fileType;
@@ -36,14 +59,14 @@ if (isset($_POST["submit"])) {
             $stmt->bind_param("ssss", $name, $descr, $filePath, $owner);
 
             if ($stmt->execute()) {
-                $message = "Succes! De knuffel is succesvol geüpload. Keer hier teug naar de <a href='main.php'>homepagina</a>.";
+                $message = "Succes! De knuffel is succesvol geüpload.";
             } else {
-                $message = "Oeps! Er was een error! Keer hier teug naar de <a href='main.php'>homepagina</a>." . $stmt->error;
+                $message = "Oeps! Er was een error!" . $stmt->error;
             }
 
             $stmt->close();
         } else {
-            $message = "Oeps! Er was een error bij het uploaden van de afbeelding. Keer hier teug naar de <a href='main.php'>homepagina</a>.";
+            $message = "Oeps! Er was een error bij het uploaden van de afbeelding.";
         }
     }
 }
@@ -104,6 +127,8 @@ $conn->close();
             </div>
 
         </form>
+
+        <a href="main.php" class="return-home">Of ga naar 🏠</a>
 
         <div class="msg-cont">
             <!-- Display success/error message inside the card -->

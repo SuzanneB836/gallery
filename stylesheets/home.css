@@ -4,21 +4,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
     max-width: 100vw;
+    padding: 10px 10px;
 }
 
 .intro-text {
-    max-width: 40%;
-    width: 40%;
+    max-width: 50%;
+    width: 50%;
+    line-height: 1.6;
 }
 
 .intro-img {
     max-width: 40%;
     width: 40%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .intro-img img {
     max-width: 100%;
     width: 100%;
+    border-radius: 8px;
+}
+
+/* -- -- -- -- -- Button -- -- -- -- -- */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.button {
+    display: inline-block;
+    background: #ff7675;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: #d35400;
+    transform: scale(1.05);
 }

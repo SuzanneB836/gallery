@@ -190,6 +190,18 @@ h2 {
   transform: scale(1);
 }
 
+/* -- -- -- -- -- Naar huis -- -- -- -- -- */
+
+.return-home {
+  padding-bottom: 30px;
+  color: unset;
+  text-decoration: underline #6c757d;
+}
+
+.return-home :hover {
+  text-decoration: underline #007bff;
+}
+
 /* -- -- -- -- -- Bericht -- -- -- -- -- */
 
 .msg-cont {
